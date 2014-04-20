@@ -49,6 +49,7 @@
      <Compile Include="Assets\scripts\EnemyScript.cs" />
      <Compile Include="Assets\scripts\MissileScript.cs" />
      <Compile Include="Assets\scripts\PlayerControler.cs" />
+     <Compile Include="Assets\scripts\zegarek.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

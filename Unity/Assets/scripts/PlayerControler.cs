@@ -73,7 +73,11 @@ public class PlayerControler : MonoBehaviour {
         canShoot = false;
         StartCoroutine(Reload(reloadingTime));
     }
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 30, 250, 20), "ILOSC JEDNOSTEK: " + count);
 
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -104,6 +108,8 @@ public class PlayerControler : MonoBehaviour {
             timer = 0.0f;
         }
         timer += Time.deltaTime;
+
+
        // Debug.Log(timer % -5.0f);
        // Debug.Log("count = "+count);
 	}
