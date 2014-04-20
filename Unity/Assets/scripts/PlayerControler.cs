@@ -19,10 +19,13 @@ public class PlayerControler : MonoBehaviour {
 
     bool canShoot = true;
     float reloadingTime = 1f; //to będzie 1 sekunda
+    int count;
+    float timer = 0.0f;
  
 	// Use this for initialization
 	void Start () {
         hp = 3;
+        count = 5;
 	}
 
 
@@ -75,15 +78,33 @@ public class PlayerControler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKey(KeyCode.W) && canShoot)
+        if (Input.GetKey(KeyCode.W) && canShoot && count!=0)
         {
             ShootW(); Debug.Log("SHOT W");
+            count--;
         }
-        if (Input.GetKey(KeyCode.A) && canShoot)
+        if (Input.GetKey(KeyCode.A) && canShoot && count != 0)
+        {
             ShootA();
-        if (Input.GetKey(KeyCode.S) && canShoot)
+            count--;
+        }
+        if (Input.GetKey(KeyCode.S) && canShoot && count != 0)
+        {
             ShootS();
-        if (Input.GetKey(KeyCode.D) && canShoot)
+            count--;
+        }
+        if (Input.GetKey(KeyCode.D) && canShoot && count != 0)
+        { 
             ShootD();
+            count--;
+        }
+        if (timer >= 5.0f)
+        {
+            count++;
+            timer = 0.0f;
+        }
+        timer += Time.deltaTime;
+       // Debug.Log(timer % -5.0f);
+       // Debug.Log("count = "+count);
 	}
 }
