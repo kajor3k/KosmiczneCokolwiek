@@ -76,6 +76,7 @@ public class PlayerControler : MonoBehaviour {
     void OnGUI()
     {
         GUI.Label(new Rect(10, 30, 250, 20), "ILOSC JEDNOSTEK: " + count);
+		GUI.Label(new Rect(10, 50, 250, 20), "HP: " + hp);
 
     }
 	
