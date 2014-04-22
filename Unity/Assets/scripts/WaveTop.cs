@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Wave : MonoBehaviour {
+public class WaveTop: MonoBehaviour {
 	float timer = 0.0f;
 	int EnemyAmount=0;
 	float reloadingTime = 1f;
@@ -17,11 +17,16 @@ public class Wave : MonoBehaviour {
 
 	
 	}
+	IEnumerator Reload(float time)
+	{
+		yield return new WaitForSeconds(time);
+		canShoot = true;
+	}
 
 	void EnemySpawnTop()
 	{
 				GameObject.Instantiate (EnemyMissile, EnemySpawnerTop.position, EnemySpawnerTop.rotation);
-			canShoot = false;
+		canShoot = false;
 			StartCoroutine(Reload(reloadingTime));
 	}
 	
@@ -30,13 +35,12 @@ public class Wave : MonoBehaviour {
 
 
 			
-		if (timer >= 20.0f)
+		if (timer >= 5.0f)
 		{
-			if(EnemyAmount!=0)
-			{
+			while(EnemyAmount!=0){
 				EnemySpawnTop();
-				count--;
-
+				EnemyAmount--;
+				
 			}
 
 			EnemyAmount++;
